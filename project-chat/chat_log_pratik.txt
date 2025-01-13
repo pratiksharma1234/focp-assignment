@@ -1,0 +1,19 @@
+Chat session with pratik:
+User: hello
+Agent: Hi! Welcome to IntelliChat. How may I help?
+User: how are you
+Agent: Hello! Nice to meet you. How may I assist?
+User: age
+Agent: pratik, I'm not sure about that. Can you clarify?
+User: age
+Agent: pratik, I'm here to help, but I might need more information.
+User: how old are you
+Agent: I don't age, I just get updated.
+User: tell me a joke
+Agent: What do you call fake spaghetti? An impasta!
+User: courses
+Agent: That's interesting. Let me think about it!
+User: goodmorning
+Agent: pratik, I'm not sure about that. Can you clarify?
+User: bye
+Agent: It was nice chatting with you, pratik. Goodbye!
