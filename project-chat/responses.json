@@ -2,8 +2,7 @@
       {
         "tag": "greeting",
         "patterns": ["Hi", "Hello"],
-        "responses": [
-          "Hello! How can I assist you?", 
+        "responses": [ 
           "Hi there! How can I help you today?"
         ]
       },
@@ -24,7 +23,7 @@
       },
       {
         "tag": "library",
-        "patterns": ["tell me about the college library","what type of book is there in library"],
+        "patterns": ["tell me about the college library"],
         "responses": [
           "the library is in front of the lab.", 
           "we provide you with various educational and fictional books"
@@ -32,15 +31,15 @@
       },
       {
         "tag": "cafeteria",
-        "patterns": ["Where is the cafeteria located?","what type of foods is served in cafeteria?"],
-        "responses": [
-          "the cafeteria is inside the college just straight from main gate", 
+        "patterns": ["tell me about the cafeteria"],
+        "responses": [ 
+          "the cafeteria is inside the college just straight from main gate",
           "you can get healthy foods from all over the world"
         ]
       },
       {
         "tag": "eca",
-        "patterns": ["Tell me about eca", "what type of games we can play?"],
+        "patterns": ["Tell me about eca"],
         "responses": [
           "our college also provides students with eca facility", 
           "you can play futsal,pool,basketball,badminton and also play guitar"
@@ -48,7 +47,7 @@
       },
       {
         "tag": "events",
-        "patterns": ["does this college hosts events", "What type of events are hosted?"],
+        "patterns": ["does this college hosts events"],
         "responses": [
           "yes, this college hosts a variety of events", 
           "this college hosts cultural events, educational events and many more events"
