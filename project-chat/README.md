@@ -1,6 +1,6 @@
 # Chatbot for The British College
 
-This project is a simple chatbot program designed to simulate a conversation between a user and an agent representing The British College of Nepal. The chatbot is capable of providing context-aware responses, maintaining a conversation log, and simulating a typing effect for a more interactive user experience.
+This project is a simple chatbot program designed to simulate a conversation between a user and an agent representing The British College of Nepal. The chatbot is capable of providing context-aware responses, maintaining a conversation log, and simulating a typing effect for more interactive user experience.
 
 ## Features
 - **Dynamic Agent Name:** The chatbot introduces itself with a randomly chosen name from a predefined list.
