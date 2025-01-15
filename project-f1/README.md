@@ -1,134 +1,113 @@
-Formula 1 Lap Times Analysis
-This Python project analyzes lap times from Formula 1 Grand Prix practice sessions. The program processes multiple JSON files containing lap times, identifies the fastest drivers, and saves detailed analysis logs for each race.
+# README for F1 Lap Times Analysis Tool
 
-Features
-Process Multiple Files: Analyzes lap times from multiple JSON files (lap_times_1.json, lap_times_2.json, lap_times_3.json).
-Driver Details: Incorporates driver information (names and teams) from f1_drivers.json.
-Detailed Analysis:
-Fastest driver and lap time overall.
-Fastest and average lap times for each driver.
-Formatted Output: Displays results in a neat table format using the tabulate library.
-Log Files: Saves analysis results to separate JSON logs for each race.
-Requirements
-Python 3.7 or later
-Installed Python modules:
-json
-tabulate (install with pip install tabulate)
-Files
-Input Files
-f1_drivers.json: Contains driver details, including their codes, names, and teams. Example:
+## Overview
+This project is a Python-based tool designed to analyze and visualize Formula 1 lap time data from JSON files. It identifies the fastest lap times, calculates average lap times for each driver, and generates comprehensive reports. The results are displayed in tabular form and plotted as bar charts for better visualization. Additionally, the analyzed data is saved to log files for future reference.
 
-json
-Copy code
+## Features
+- **Load Driver Details:** Reads driver details such as name and team from a JSON file (`f1_drivers.json`).
+- **Parse Lap Times:** Extracts lap time data and Grand Prix location from JSON files.
+- **Analyze Lap Times:** Identifies the fastest lap and calculates average lap times for each driver.
+- **Display Results:** Outputs results in a tabular format and visualizes them using bar charts.
+- **Save Logs:** Saves the processed results into separate JSON log files for each lap time data file.
+
+## Requirements
+- Python 3.7+
+- Required Python packages:
+  - `json`
+  - `tabulate`
+  - `matplotlib`
+
+Install the required packages using the following command:
+```bash
+pip install tabulate matplotlib
+```
+
+## File Structure
+- `f1_drivers.json`: Contains driver details (name and team) mapped by driver codes.
+- `lap_times_X.json`: JSON files with lap time data for different Grand Prix events.
+- `lap_times_X_log.json`: Generated log files containing the processed results for each lap time data file.
+- `main.py`: The main script to execute the program.
+
+## Input File Format
+### `f1_drivers.json`
+```json
 {
-    "HAM": {"name": "Lewis Hamilton", "team": "Mercedes"},
-    "VER": {"name": "Max Verstappen", "team": "Red Bull Racing"},
-    "NOR": {"name": "Lando Norris", "team": "McLaren"}
+    "DR1": {"name": "Driver 1", "team": "Team A"},
+    "DR2": {"name": "Driver 2", "team": "Team B"}
 }
-Lap Times Files: JSON files containing lap times for multiple Grand Prix events:
+```
 
-lap_times_1.json
-lap_times_2.json
-lap_times_3.json
-Each file should follow this format:
-
-json
-Copy code
+### Lap Times Files (e.g., `lap_times_1.json`)
+```json
 {
     "grand_prix_location": "Monaco",
     "lap_times": {
-        "HAM": [98.123, 100.456, 101.789],
-        "VER": [99.456, 102.345, 100.678],
-        "NOR": [100.123, 101.456, 102.789]
+        "DR1": [78.3, 77.8, 76.5],
+        "DR2": [79.0, 78.5, 77.2]
     }
 }
-Output Files
-lap_times_1_log.json, lap_times_2_log.json, lap_times_3_log.json: Detailed analysis logs saved in JSON format.
-Usage
-1. Clone the Repository
-Download or clone the repository to your local machine.
+```
 
-bash
-Copy code
-git clone https://github.com/your-repo/f1-lap-times.git
-cd f1-lap-times
-2. Install Dependencies
-Install the required Python modules using pip:
+## How to Use
+1. Ensure the `f1_drivers.json` file and lap times files (`lap_times_1.json`, etc.) are available in the same directory as `main.py`.
+2. Run the main script:
+   ```bash
+   python main.py
+   ```
+3. The script will process each lap times file, display the results, and save them as JSON log files.
 
-bash
-Copy code
-pip install tabulate
-3. Run the Program
-Run the program from the command line:
-
-bash
-Copy code
-python main.py
-The program will:
-
-Process each file (lap_times_1.json, lap_times_2.json, lap_times_3.json).
-Display results in the console.
-Save logs to JSON files (e.g., lap_times_1_log.json).
-Example Output
-Console Output:
-plaintext
-Copy code
+## Output Example
+### Console Output
+```
 Processing file: lap_times_1.json
 
-Grand Prix Location: Monaco Grand Prix
+Grand Prix Location: Monaco
 
-Fastest Driver Overall: HAM with a time of 98.123 seconds
+Fastest Driver Overall: DR1 with a time of 76.500 seconds
 
-+------+-------------------+------------------+---------------+---------------+
-| Code | Name              | Team             | Fastest Time  | Average Time  |
-+------+-------------------+------------------+---------------+---------------+
-| HAM  | Lewis Hamilton    | Mercedes         | 98.123        | 100.456       |
-| VER  | Max Verstappen    | Red Bull Racing  | 99.456        | 101.789       |
-| NOR  | Lando Norris      | McLaren          | 100.123       | 102.345       |
-+------+-------------------+------------------+---------------+---------------+
++------+-----------+---------+---------------+---------------+
+| Code | Name      | Team    | Fastest Time  | Average Time  |
++------+-----------+---------+---------------+---------------+
+| DR1  | Driver 1  | Team A  | 76.500        | 77.533        |
+| DR2  | Driver 2  | Team B  | 77.200        | 78.233        |
++------+-----------+---------+---------------+---------------+
+```
 
-Results have been saved to 'lap_times_1_log.json'.
-Log File (lap_times_1_log.json):
-json
-Copy code
+### Bar Chart
+A bar chart is displayed comparing the fastest and average lap times for each driver.
+
+### JSON Log File (e.g., `lap_times_1_log.json`)
+```json
 {
     "grand_prix_location": "Monaco",
-    "fastest_driver": "HAM",
-    "fastest_time": 98.123,
+    "fastest_driver": "DR1",
+    "fastest_time": 76.5,
     "driver_details": [
         {
-            "code": "HAM",
-            "name": "Lewis Hamilton",
-            "team": "Mercedes",
-            "fastest_time": 98.123,
-            "average_time": 100.456
+            "code": "DR1",
+            "name": "Driver 1",
+            "team": "Team A",
+            "fastest_time": 76.5,
+            "average_time": 77.533
         },
         {
-            "code": "VER",
-            "name": "Max Verstappen",
-            "team": "Red Bull Racing",
-            "fastest_time": 99.456,
-            "average_time": 101.789
-        },
-        {
-            "code": "NOR",
-            "name": "Lando Norris",
-            "team": "McLaren",
-            "fastest_time": 100.123,
-            "average_time": 102.345
+            "code": "DR2",
+            "name": "Driver 2",
+            "team": "Team B",
+            "fastest_time": 77.2,
+            "average_time": 78.233
         }
     ]
 }
-Troubleshooting
-Missing Files: Ensure f1_drivers.json and all lap_times_X.json files are in the same directory as main.py.
+```
 
-Missing Dependencies: Install missing dependencies using:
+## Notes
+- If a file is missing or contains invalid JSON, an error message will be displayed, and the file will be skipped.
+- Modify the `lap_times_files` list in the `main()` function to include additional lap time files.
 
-bash
-Copy code
-pip install tabulate
-File Format Errors: Verify the JSON files are properly formatted.
+## License
+This project is open-source and distributed under the MIT License.
 
-Author
-Dibas Mainali
-dibasmainali012@gmail.com
+## Author
+[Your Name]
+
